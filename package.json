@@ -1,0 +1,16 @@
+{
+  "name": "generator-vue-standalone",
+  "version": "1.0.0",
+  "description": "Generate a reusbale Vue.js component",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
