@@ -3,5 +3,8 @@
 
 Once you've used this generator
 
-* start webpack from from the CLI
-    ~/dev/components/my-custom-component$ npm run dev
+* build from from the CLI
+    ~/my/components/<%= slug %>$ npm run build
+
+* start watcher from from the CLI
+    ~/my/components/<%= slug %>$ npm run dev

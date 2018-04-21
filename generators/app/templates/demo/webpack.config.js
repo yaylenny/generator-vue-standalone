@@ -8,11 +8,6 @@ module.exports={
   },
   resolve:{
     alias:{
-      Components: path.resolve( __dirname, 'src/components/'),
-      Core: path.resolve( __dirname, 'src/core/'),
-      Mixins: path.resolve( __dirname, 'src/mixins/'),
-      Style: path.resolve( __dirname, 'src/style/'),
-      Views: path.resolve( __dirname, 'src/views/'),
       Lib: path.resolve( __dirname, 'lib/')
     }
   },

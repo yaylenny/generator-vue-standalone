@@ -1,7 +1,7 @@
-import home from "./views/home.vue";
+// import home from "./views/home.vue";
 
 const routes=[
-  { path: '/', component: home, name: 'home' },
+  // { path: '/', component: home, name: 'home' },
 ];
 
 export default routes;

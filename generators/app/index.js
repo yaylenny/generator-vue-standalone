@@ -1,5 +1,5 @@
 var Generator = require('yeoman-generator')
-var addons=require("./addons.js");
+// var addons=require("./addons.js");
 
 function promise( fn, str ){
   return new Promise(( resolve, reject )=>{
@@ -13,7 +13,7 @@ function lower( w="" ){
   return w.toLowerCase();
 }
 function slugify( str="" ){
-  if( !str.includes(' ')) return lower( str );
+  if( !(str.includes(' '))) return lower( str );
   return str.split(' ').map( lower ).join('-');
 }
 function capitalize( str="", forcelower ){
@@ -50,7 +50,7 @@ class Base extends Generator{
 module.exports=class extends Base{
   constructor( args, opt ){
     super( args, opt );
-    this.props.addons=[];
+    // this.props.addons=[];
     this.argument('slug', { required: false, type: String });
     if( this.options.slug ){
       this.props.slug=slugify( this.options.slug );
@@ -88,12 +88,12 @@ module.exports=class extends Base{
         name: 'description',
         message: 'Description of this component. This goes into package.json -->'
       },
-      {
-        type: 'checkbox',
-        name: 'addons',
-        message: 'Add ons',
-        choices: addons
-      },
+      // {
+      //   type: 'checkbox',
+      //   name: 'addons',
+      //   message: 'Add ons',
+      //   choices: addons
+      // },
       {
         type: 'input',
         name: 'author',
@@ -103,33 +103,29 @@ module.exports=class extends Base{
     );
     return this.prompt( prompts ).then( props=>{
       this.props=Object.assign({}, this.props, props, {
-        addons: props.addons.map( value=>addons.find( a=>a.value===value ))
+        // addons: props.addons.map( value=>addons.find( a=>a.value===value ))
       });
     });
   }
 
   writing(){
-    let { name }=this.props;
+    let { name, slug }=this.props;
     [
       'webpack.config.js',
-      'demo.webpack.config.js',
       'package.json',
       'README.md',
       '.babelrc',
       'src/index.js',
-      'src/components/SubComponent.vue',
-      'src/mixins/mixin.vue',
+      'src/components/sub.vue',
+      'src/mixins/index.js',
+      'demo/package.json',
       'demo/webpack.config.js',
-      'demo/index.js',
+      'demo/dist/demo-django.html',
       'demo/dist/demo.html',
-      'demo/lib',
+      'demo/src/demo.vue',
       'demo/src/index.js',
       'demo/src/routes.js',
-      'demo/src/components',
-      'demo/src/core',
-      'demo/src/mixins',
-      'demo/src/style/demo.scss',
-      'demo/src/views/demo.vue',
+      [ 'demo/lib/empty.js', `demo/lib/${slug}.js` ],
       [ 'src/core/Component.vue', `src/core/${name}.vue` ]
     ].forEach( s=>this.copyTpl( s ));
   }

@@ -14,10 +14,12 @@
     computed:{
     },
     // created(){},
-    // mounted(){}
+    // destroyed(){},
+    // mounted(){},
     // watch:{}
   }
 </script>
+
 <template>
   <div class="<%= slug %>">
     <p>
@@ -26,3 +28,5 @@
     </p>
   </div>
 </template>
+
+<!-- <style lang="scss" src=""></style> -->

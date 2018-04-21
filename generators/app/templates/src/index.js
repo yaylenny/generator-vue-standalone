@@ -1,9 +1,13 @@
 import <%= name %> from "./core/<%= name %>.vue";
 
 export default{
-  install( Vue ){
+  install( Vue, prefix="<%= slug %>" ){
     console.log( 'installing <%= name %>');
-    Vue.component('<%= slug %>', <%= name %> );
+    Vue.component( prefix, <%= name %> );
   },
+  <%= name %>
+}
+
+export{
   <%= name %>
 }

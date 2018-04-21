@@ -1,12 +1,15 @@
 var path=require("path");
 
 module.exports={
-  entry: "./src",
+  entry: {
+    'dist/<%= slug %>': "./src",
+    'demo/lib/<%= slug %>': "./src"
+  },
   output:{
     library: "<%= name %>",
     libraryTarget: "umd",
-    path: __dirname + '/dist',
-    filename: '<%= slug %>.js'
+    path: __dirname,
+    filename: '[name].js'
   },
   resolve:{
     alias:{
